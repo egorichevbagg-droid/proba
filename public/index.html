@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Библиотека книг</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Библиотека книг</h1>
+            <p>Управление вашей коллекцией книг</p>
+        </header>
+
+        <!-- Форма добавления книги -->
+        <div class="form-section">
+            <h2>Добавить новую книгу</h2>
+            <form id="addBookForm">
+                <div class="form-group">
+                    <input type="text" id="title" placeholder="Название книги" required>
+                    <input type="text" id="author" placeholder="Автор" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="year" placeholder="Год издания">
+                    <input type="text" id="genre" placeholder="Жанр">
+                </div>
+                <button type="submit">Добавить книгу</button>
+            </form>
+        </div>
+
+        <!-- Поиск и фильтрация -->
+        <div class="search-section">
+            <input type="text" id="searchInput" placeholder="Поиск по названию или автору...">
+            <button onclick="loadBooks()">Обновить список</button>
+        </div>
+
+        <!-- Список книг -->
+        <div class="books-section">
+            <h2>Список книг (<span id="booksCount">0</span>)</h2>
+            <div id="booksList" class="books-list">
+                <!-- Книги будут загружаться здесь -->
+            </div>
+        </div>
+
+        <!-- Модальное окно для редактирования -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Редактировать книгу</h2>
+                <form id="editBookForm">
+                    <input type="hidden" id="editId">
+                    <input type="text" id="editTitle" placeholder="Название" required>
+                    <input type="text" id="editAuthor" placeholder="Автор" required>
+                    <input type="number" id="editYear" placeholder="Год">
+                    <input type="text" id="editGenre" placeholder="Жанр">
+                    <div class="form-buttons">
+                        <button type="submit">Сохранить</button>
+                        <button type="button" onclick="closeModal()">Отмена</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
